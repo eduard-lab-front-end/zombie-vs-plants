@@ -20,7 +20,7 @@ main {
   align-items: center;
   width: 600px;
   height: 700px;
-  background: center / contain no-repeat url('/img/start-game-bg.png');
+  background: center / contain no-repeat url('../img/start-game-bg.png');
 }
 .start-button {
   position: absolute;
@@ -29,7 +29,7 @@ main {
   border-radius: 10px;
   border: 0;
   background: transparent;
-  background: center / cover no-repeat url('/img/start-Btn.png');
+  background: center / cover no-repeat url('../img/start-Btn.png');
   width: 10rem;
   height: 4rem;
   transition: 0.7s;
@@ -50,7 +50,7 @@ main {
   overflow: hidden;
   position: relative;
   align-content: center;
-  background: center / contain no-repeat url('/img/sky bridge.png');
+  background: center / contain no-repeat url('../img/sky bridge.png');
   border-radius:  20px;
 
 }
@@ -67,7 +67,7 @@ main {
   font-size: 2rem;
 }
 #game-end {
-  background: center / contain no-repeat url('/img/gameOver-bg.png');
+  background: center / contain no-repeat url('../img/gameOver-bg.png');
   width: 70vw;
   height: 35vh;
   display: none;
