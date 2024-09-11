@@ -8,7 +8,7 @@ class Bullet {
     this.display = "none";
 
     this.directionX = 0;
-    this.speed = 1;
+    this.speed = 3;
 
     this.element = document.createElement("img");
     this.element.src = "img/tomato-bullet.png";
