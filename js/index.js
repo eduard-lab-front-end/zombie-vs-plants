@@ -1,7 +1,7 @@
 window.addEventListener("load", () => {
   const startButton = document.querySelector(".start-button");
   const restartButton = document.querySelector(".restart-button");
-  // console.log(restartButton)
+
   let game;
   
   //EventListeners
@@ -13,7 +13,6 @@ window.addEventListener("load", () => {
   function startGame() {
     game = new Game();
     game.start();
-    console.log(game.tomatoBullet)
   }
 
 

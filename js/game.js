@@ -48,9 +48,11 @@ class Game {
         this.enemies.push(new Enemy(this.gameScreen));
       }
       const nextEnemies = [];
-      const nextBullets = [];
+      let nextBullets = [];
 
       this.enemies.forEach((enemy) => {
+        const nextBulletsTemp = [];
+        let wasEnemyHit = false
         enemy.render();
         this.bullets.forEach((bullet) => {
           bullet.render();
@@ -58,13 +60,15 @@ class Game {
             console.log("Hit");
             enemy.element.remove();
             bullet.remove();
+            wasEnemyHit = true
           }
           if (bullet.isOffScreen()) {
             bullet.remove();
           } else {
-            nextBullets.push(bullet);
+            nextBulletsTemp.push(bullet);
           }
         });
+        nextBullets = nextBulletsTemp
         if (this.player.didCollide(enemy) || enemy.left < -25) {
           console.log("Crash");
           this.lives -= 1;
@@ -72,7 +76,7 @@ class Game {
             this.isGameOver = true;
           }
           enemy.element.remove();
-        } else if (enemy.left < this.gameScreen.clientWidth) {
+        } else if (enemy.left < this.gameScreen.clientWidth && !wasEnemyHit) {
           nextEnemies.push(enemy);
         } else {
           enemy.element.remove();
