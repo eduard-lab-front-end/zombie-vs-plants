@@ -1,5 +1,5 @@
 class Bullet {
-  constructor(gameScreen, startPositionX, startPositionY, speed) {
+  constructor(gameScreen, startPositionX, startPositionY) {
     this.gameScreen = gameScreen;
     this.width = 30;
     this.height = 30;
@@ -11,7 +11,7 @@ class Bullet {
     this.speed = 1;
 
     this.element = document.createElement("img");
-    this.element.src = "../img/tomato-bullet.png";
+    this.element.src = "img/tomato-bullet.png";
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.width}px`;
 

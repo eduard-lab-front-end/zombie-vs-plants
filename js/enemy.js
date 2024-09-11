@@ -7,7 +7,7 @@ class Enemy {
     this.bottom = Math.round(Math.random() * 200) + 90;
     
     this.element = document.createElement("img");
-    this.element.src = "../img/enemy.png";
+    this.element.src = "img/enemy.png";
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.width}px`;
 
@@ -23,9 +23,5 @@ class Enemy {
   }
   move() {
     this.left += -3;
-    
-    // if(this.left < -50){
-    //   this.left = this.gameScreen.clientWidth + 100;
-    // }
   }
 }

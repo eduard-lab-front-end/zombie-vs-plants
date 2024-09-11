@@ -10,7 +10,7 @@ class Player {
     this.speed = 2;
 
     this.element = document.createElement("img");
-    this.element.src = "../img/hero-one.png";
+    this.element.src = "img/hero-one.png";
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.width}px`;
 
