@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zombie vs Plants</title>
-  <link rel="stylesheet" href="./styles/styles.css">
-</head>
-<body>
-  
-  <script src="/js/index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zombie vs Plants</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <main>
+      <div id="game-intro">
+        <button class="start-button"></button>
+        <!-- <p class="gameplay">Use the left and right arrow to control the car!</p> -->
+      </div>
+
+      <div id="game-container">
+        <div id="game-screen">         
+        <div class="game-screen_scores">
+          <p>Stats</p>
+          <p>Lives: <span id="lives">3</span></p>
+          <p>Score: <span id="score">0</span></p>
+        </div>
+        </div>
+      </div>
+      </div>
+
+      <div id="game-end">
+        <button class="restart-button">Restart</button>
+      </div>
+    </main>
+    <script src="/js/index.js"></script>
+    <script src="/js/game.js"></script>
+    <script src="/js/player.js"></script>
+    <script src="/js/bullet.js"></script>
+    <script src="/js/enemy.js"></script>
+  </body>
 </html>

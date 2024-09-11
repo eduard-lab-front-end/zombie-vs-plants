@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: beige;
+  font-size: 16px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+#game-intro {
+  position: relative;
+  align-items: center;
+  width: 600px;
+  height: 700px;
+  background: center / contain no-repeat url('/img/start-game-bg.png');
+}
+.start-button {
+  position: absolute;
+  bottom: 0px;
+  left: 210px;
+  border-radius: 10px;
+  border: 0;
+  background: transparent;
+  background: center / cover no-repeat url('/img/start-Btn.png');
+  width: 10rem;
+  height: 4rem;
+  transition: 0.7s;
+  opacity: 1;
+  cursor: pointer;
+}
+.start-button:hover { 
+  transform: scale(1.1);
+}
+
+
+#game-container {
+  display: none;
+  width: 100vw;
+  justify-content: center;
+}
+#game-screen {
+  overflow: hidden;
+  position: relative;
+  align-content: center;
+  background: center / contain no-repeat url('/img/sky bridge.png');
+  border-radius:  20px;
+
+}
+.game-screen_scores {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: rgb(700, 100, 100);
+  position: absolute;
+  top: 60px;
+}
+.game-screen_scores:first-child {
+  font-size: 2rem;
+}
+#game-end {
+  background: center / contain no-repeat url('/img/gameOver-bg.png');
+  width: 70vw;
+  height: 35vh;
+  display: none;
+  justify-content: center;
+  align-items: flex-end;
+}
+#game-end button {
+  background: linear-gradient(45deg, #b3aca9 0%, #663b2e 100%);
+  background-clip: text;
+  color: transparent;
+  font-size: 2rem;
+  border-radius: 10px;
+  border: 0;
+  width: 8rem;
+  height: 3rem;
+  transition: 0.5s;
+  opacity: 1;
+  cursor: pointer;
+}
+#game-end button:hover {
+  transform: scale(1.2);
+}
+
