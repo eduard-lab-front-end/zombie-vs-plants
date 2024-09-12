@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  background-color: beige;
   font-size: 16px;
+  background: center / contain no-repeat;
+  font-family: "Nerko One", cursive;
 }
 main {
   display: flex;
@@ -13,15 +15,26 @@ main {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  position: relative;
 }
 #game-intro {
   position: relative;
   align-items: center;
   width: 600px;
   height: 700px;
-  background: center / contain no-repeat url('../img/start-game-bg.png');
+  background: center / contain no-repeat url("../img/start-game-bg.png");
 }
+.gameplay {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  font-size: 1.5rem;
+  bottom: -70px;
+}
+.gameplay span {
+  color: red;
+  text-decoration: underline;
+}
+
 .start-button {
   position: absolute;
   bottom: 0px;
@@ -29,18 +42,17 @@ main {
   border-radius: 10px;
   border: 0;
   background: transparent;
-  background: center / cover no-repeat url('../img/start-Btn.png');
+  background: center / cover no-repeat url("../img/start-Btn.png");
   width: 10rem;
   height: 4rem;
   transition: 0.7s;
   opacity: 1;
   cursor: pointer;
 }
-.start-button:hover { 
+.start-button:hover {
   transform: scale(1.1);
+  filter: drop-shadow(2px 2px 20px yellow)
 }
-
-
 #game-container {
   display: none;
   width: 100vw;
@@ -50,11 +62,10 @@ main {
   overflow: hidden;
   position: relative;
   align-content: center;
-  background: center / contain no-repeat url('../img/sky bridge.png');
-  border-radius:  20px;
-
+  border-radius: 20px;
 }
 .game-screen_scores {
+  padding-left: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,10 +77,19 @@ main {
 .game-screen_scores:first-child {
   font-size: 2rem;
 }
+
+.decoration {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  background: center / contain no-repeat url("../img/bg-zombi-hand.png");
+  right: 10px;
+  top: 20rem;
+}
 #game-end {
-  background: center / contain no-repeat url('../img/gameOver-bg.png');
-  width: 70vw;
-  height: 35vh;
+  background: center / contain no-repeat url("../img/gameOver-bg.png");
+  width: 800px;
+  height: 600px;
   display: none;
   justify-content: center;
   align-items: flex-end;
@@ -91,3 +111,125 @@ main {
   transform: scale(1.2);
 }
 
+/*  Sprites Animation   */
+.sprite-player {
+  width: 78px;
+  height: 80px;
+  background-size: 405px 80px;
+  background-image: url("/img/hero.png");
+  animation: player 1s steps(5) infinite;
+}
+@keyframes player {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -405px;
+  }
+}
+.sprite-egg-monster {
+  width: 70px;
+  height: 80px;
+  background-size: 1100px 79px;
+  background-image: url("/img/egg-enemy.png");
+  animation: egg-monster 1s steps(14) infinite;
+}
+@keyframes egg-monster {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -1100px;
+  }
+}
+.sprite-ghost-monster {
+  width: 65px;
+  height: 80px;
+  background-size: 772px 79px;
+  background-image: url("/img/ghost-enemy.png");
+  animation: ghost-monster 1s steps(11) infinite;
+}
+@keyframes ghost-monster {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -772px;
+  }
+}
+.sprite-zombi {
+  width: 48px;
+  height: 90px;
+  background-size: 309px 90px;
+  transform: scale(-1, 1);
+  background-image: url("/img/zombi-enemy.png");
+  animation: zombi 1s steps(6) infinite;
+}
+@keyframes zombi {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -309px;
+  }
+}
+.sprite-ghost-two {
+  width: 70px;
+  height: 102px;
+  background-size: 800px 102px;
+  background-image: url("/img/ghost-enemy-two.png");
+  animation: ghost-two 1s steps(11) infinite;
+}
+@keyframes ghost-two {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -800px;
+  }
+}
+.sprite-walking-skeleton {
+  width: 120px;
+  height: 80px;
+  background-size: 1788px 85px;
+  background-image: url("/img/walking-skeleton-enemy.png");
+  animation: walking-skeleton 1s steps(13) infinite;
+}
+@keyframes walking-skeleton {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -1788px;
+  }
+}
+.sprite-angry-ball {
+  width: 80px;
+  height: 70px;
+  background-size: 910px 71px;
+  background-image: url("/img/angry-ball-enemy.png");
+  animation: angry-ball 1s steps(11) infinite;
+}
+@keyframes angry-ball {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -910px;
+  }
+}
+.flame-bullet {
+  width: 55px;
+  height: 22px;
+  background-size: 600px 86px;
+  background-image: url("/img/flame-bullet.png");
+  animation: flame 1s steps(7) infinite;
+}
+@keyframes flame {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -600px;
+  }
+}

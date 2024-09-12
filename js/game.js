@@ -1,4 +1,5 @@
-const GARDEN_BACKGROUND = 130;
+const GARDEN_BACKGROUND = 270;
+const GAME_BACKGROUNDS = ['bamboo-bridge-bg', 'castle-bridge-bg', 'forest-bridge-bg', 'sky-bridge-bg']
 
 class Game {
   constructor() {
@@ -6,32 +7,34 @@ class Game {
     this.gameContainer = document.querySelector("#game-container");
     this.gameScreen = document.querySelector("#game-screen");
     this.gameOverScreen = document.querySelector("#game-end");
-    this.width = 700;
-    this.height = 500;
+    this.width = 800;
+    this.height = 800;
 
     this.player;
-    this.lives = 15;
+    this.lives = 3;
     this.score = 0;
+    this.yourRecord = 0;
     this.isGameOver = false;
 
     this.framesPerSeconds = 1000 / 60;
     this.currentFrame = 0;
 
+    this.randomBackground = Math.floor(Math.random() * GAME_BACKGROUNDS.length)
     this.enemies = [];
     this.bullets = [];
   }
   start() {
     this.startScreen.style.display = "none";
     this.gameOverScreen.style.display = "none";
+
     this.gameContainer.style.display = "flex";
 
+    this.gameScreen.style.background = `center / contain no-repeat url('/img/${GAME_BACKGROUNDS[this.randomBackground]}.png')`
     this.gameScreen.style.width = `${this.width}px`;
     this.gameScreen.style.height = `${this.height}px`;
 
     this.player = new Player(this.gameScreen);
-    //
     this.player.game = this;
-    //
     this.enemies.push(new Enemy(this.gameScreen));
     this.gameLoop();
   }
@@ -50,41 +53,43 @@ class Game {
       const nextEnemies = [];
       let nextBullets = [];
 
-      this.enemies.forEach((enemy) => {
-        const nextBulletsTemp = [];
+      this.enemies.forEach((enemy) => { 
         let wasEnemyHit = false
-        enemy.render();
+        enemy.render()
         this.bullets.forEach((bullet) => {
-          bullet.render();
+          bullet.render(); 
+          //
           if (bullet.didCollide(enemy)) {
+            console.log(wasEnemyHit)
             console.log("Hit");
+            this.score += 100;
+            wasEnemyHit = true;
             enemy.element.remove();
             bullet.remove();
-            wasEnemyHit = true
-          }
-          if (bullet.isOffScreen()) {
+          } else if(bullet.isOffScreen()) {
             bullet.remove();
           } else {
-            nextBulletsTemp.push(bullet);
+            nextBullets.push(bullet);
           }
-        });
-        nextBullets = nextBulletsTemp
-        if (this.player.didCollide(enemy) || enemy.left < -25) {
-          console.log("Crash");
-          this.lives -= 1;
-          if (this.lives < 0) {
-            this.isGameOver = true;
+          console.log(wasEnemyHit)
+          ///
+        })
+        // this.bullets = nextBullets; // fix it
+        if (!wasEnemyHit && this.player.didCollide(enemy) || enemy.left < -25) {
+            console.log("Crash");
+            this.lives -= 1;
+            if (this.lives < 0) {
+              this.isGameOver = true;
+            }
+            enemy.element.remove();
+          } else if (enemy.left < this.gameScreen.clientWidth) {
+            if(!wasEnemyHit) {
+              nextEnemies.push(enemy);
+            }
+          } else {
+            enemy.element.remove();
           }
-          enemy.element.remove();
-        } else if (enemy.left < this.gameScreen.clientWidth && !wasEnemyHit) {
-          nextEnemies.push(enemy);
-        } else {
-          enemy.element.remove();
-        }
-      });
-
-      this.bullets = nextBullets;
-      this.enemies = nextEnemies;
+      })
 
       document.querySelector("#lives").innerText = this.lives;
       document.querySelector("#score").innerText = this.score;
@@ -92,10 +97,18 @@ class Game {
       if (this.isGameOver) {
         clearInterval(gameId);
         this.gameContainer.style.display = "none";
-        this.gameOverScreen.style.display = "flex";
+        if(localStorage.getItem('score') < this.score) {
+          console.log('lose')
+          console.log(localStorage.getItem('score'))
+        } else {
+          this.gameOverScreen.style.display = "flex";
+        }
         this.player.element.remove();
         this.enemies.forEach((enemy) => enemy.element.remove());
+        this.bullets.forEach((bullet) => bullet.element.remove());
+        localStorage.setItem('score', this.score)
       }
+      this.enemies = nextEnemies;
     }, this.framesPerSeconds);
   }
 }

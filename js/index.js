@@ -3,19 +3,15 @@ window.addEventListener("load", () => {
   const restartButton = document.querySelector(".restart-button");
 
   let game;
-  
-  //EventListeners
-  startButton.addEventListener("click", startGame);
-  restartButton.addEventListener("click", startGame);
-
- 
- 
+    
   function startGame() {
     game = new Game();
     game.start();
   }
-
-
+  
+  //EventListeners
+  startButton.addEventListener("click", startGame);
+  restartButton.addEventListener("click", startGame);
   document.addEventListener("keydown", (event) => {
     if (event.code === "ArrowUp" || event.code === "KeyW") {
       game.player.directionY = -1;
@@ -23,6 +19,9 @@ window.addEventListener("load", () => {
     if (event.code === "ArrowDown" || event.code === "KeyS") {
       game.player.directionY = 1;
     }
+    if(event.code === 'KeyB') {
+      game.player.shoot();
+    } 
   });
   document.addEventListener("keyup", (event) => {
     if (
@@ -35,9 +34,5 @@ window.addEventListener("load", () => {
       game.player.directionY = 0;
     }
   });
-  document.addEventListener('keydown', (event) => {
-    if(event.code === 'Space') {
-      game.player.shoot();
-    } 
-  })
 });
+  

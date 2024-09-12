@@ -1,38 +1,35 @@
 class Bullet {
   constructor(gameScreen, startPositionX, startPositionY) {
     this.gameScreen = gameScreen;
-    this.width = 30;
-    this.height = 30;
+    // this.width = 60;
+    // this.height = 30;
     this.left = startPositionX;
     this.top = startPositionY;
     this.display = "none";
-
-    this.directionX = 0;
     this.speed = 3;
 
-    this.element = document.createElement("img");
-    this.element.src = "img/tomato-bullet.png";
-    this.element.style.width = `${this.width}px`;
-    this.element.style.height = `${this.width}px`;
+    this.element = document.createElement("div");
+    this.element.classList.add('flame-bullet')
 
     this.element.style.position = `absolute`;
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
-    this.element.style.transform = " scale(-1, 1)";
+
 
     this.gameScreen.appendChild(this.element);
   }
   render() {
     this.move();
-    this.element.style.left = `${this.left}px`;
+    this.element.style.left = `${this.left - 10}px`;
     //
-    this.element.style.top = `${this.top - 33}px`;
+    this.element.style.top = `${this.top + 10}px`;
   }
   move() {
     this.left += this.speed;
-    if (this.left > this.gameScreen.clientWidth) {
-      this.remove();
-    }
+    // if (this.left > this.gameScreen.clientWidth) {
+      // console.log(this.left, 'Left bullet')
+      // this.element.remove();
+    // } // to fix
   }
   didCollide(enemy) {
     const bullet = this.element.getBoundingClientRect();
