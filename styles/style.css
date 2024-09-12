@@ -116,7 +116,7 @@ main {
   width: 78px;
   height: 80px;
   background-size: 405px 80px;
-  background-image: url("/img/hero.png");
+  background-image: url("../img/hero.png");
   animation: player 1s steps(5) infinite;
 }
 @keyframes player {
@@ -131,7 +131,7 @@ main {
   width: 70px;
   height: 80px;
   background-size: 1100px 79px;
-  background-image: url("/img/egg-enemy.png");
+  background-image: url("../img/egg-enemy.png");
   animation: egg-monster 1s steps(14) infinite;
 }
 @keyframes egg-monster {
@@ -146,7 +146,7 @@ main {
   width: 65px;
   height: 80px;
   background-size: 772px 79px;
-  background-image: url("/img/ghost-enemy.png");
+  background-image: url("../img/ghost-enemy.png");
   animation: ghost-monster 1s steps(11) infinite;
 }
 @keyframes ghost-monster {
@@ -162,7 +162,7 @@ main {
   height: 90px;
   background-size: 309px 90px;
   transform: scale(-1, 1);
-  background-image: url("/img/zombi-enemy.png");
+  background-image: url("../img/zombi-enemy.png");
   animation: zombi 1s steps(6) infinite;
 }
 @keyframes zombi {
@@ -177,7 +177,7 @@ main {
   width: 70px;
   height: 102px;
   background-size: 800px 102px;
-  background-image: url("/img/ghost-enemy-two.png");
+  background-image: url("../img/ghost-enemy-two.png");
   animation: ghost-two 1s steps(11) infinite;
 }
 @keyframes ghost-two {
@@ -192,7 +192,7 @@ main {
   width: 120px;
   height: 80px;
   background-size: 1788px 85px;
-  background-image: url("/img/walking-skeleton-enemy.png");
+  background-image: url("../img/walking-skeleton-enemy.png");
   animation: walking-skeleton 1s steps(13) infinite;
 }
 @keyframes walking-skeleton {
@@ -207,7 +207,7 @@ main {
   width: 80px;
   height: 70px;
   background-size: 910px 71px;
-  background-image: url("/img/angry-ball-enemy.png");
+  background-image: url("../img/angry-ball-enemy.png");
   animation: angry-ball 1s steps(11) infinite;
 }
 @keyframes angry-ball {
@@ -222,7 +222,7 @@ main {
   width: 55px;
   height: 22px;
   background-size: 600px 86px;
-  background-image: url("/img/flame-bullet.png");
+  background-image: url("../img/flame-bullet.png");
   animation: flame 1s steps(7) infinite;
 }
 @keyframes flame {
