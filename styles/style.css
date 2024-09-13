@@ -74,10 +74,27 @@ main {
   position: absolute;
   top: 60px;
 }
+.old-record {
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: rgb(700, 100, 100);
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  font-size: 2rem;
+}
 .game-screen_scores:first-child {
   font-size: 2rem;
 }
-
+.music {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  /* background: center / contain no-repeat url('../img/music-off.png'); */
+}
 .decoration {
   position: absolute;
   width: 3rem;
@@ -86,7 +103,7 @@ main {
   right: 10px;
   top: 20rem;
 }
-#game-end {
+#game-over {
   background: center / contain no-repeat url("../img/gameOver-bg.png");
   width: 800px;
   height: 600px;
@@ -94,7 +111,7 @@ main {
   justify-content: center;
   align-items: flex-end;
 }
-#game-end button {
+#game-over button {
   background: linear-gradient(45deg, #b3aca9 0%, #663b2e 100%);
   background-clip: text;
   color: transparent;
@@ -107,11 +124,43 @@ main {
   opacity: 1;
   cursor: pointer;
 }
-#game-end button:hover {
+#game-over button:hover {
   transform: scale(1.2);
 }
-
-/*  Sprites Animation   */
+#game-newRecord {
+  background: center / contain no-repeat url("../img/win-bg.png");
+  width: 800px;
+  height: 600px;
+  position: relative;
+  display: none;
+  justify-content: center;
+  align-items: flex-end;
+}
+.yourScore {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 1rem;
+  color: #b7aa8f;
+  font-family: "Nerko One", cursive;
+  filter: drop-shadow(0px 8px 4px #fbb810);
+  transition: 0.3s;
+}
+.yourScore:hover {
+  filter: drop-shadow(0px 8px 5px #77746d);
+}
+.new-record-descr {
+  position: absolute;
+  bottom: -50px;
+}
+.new-record-score {
+  position: absolute;
+  bottom: -80px;
+}
+.new-record-descr span,.new-record-score span {
+  font-size: 1.4rem;
+  color: red;
+} 
+/*  Sprite Animations   */
 .sprite-player {
   width: 78px;
   height: 80px;

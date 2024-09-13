@@ -27,7 +27,6 @@ class Bullet {
   move() {
     this.left += this.speed;
     // if (this.left > this.gameScreen.clientWidth) {
-      // console.log(this.left, 'Left bullet')
       // this.element.remove();
     // } // to fix
   }

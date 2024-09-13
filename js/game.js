@@ -11,7 +11,8 @@ class Game {
     this.startScreen = document.getElementById("game-intro");
     this.gameContainer = document.querySelector("#game-container");
     this.gameScreen = document.querySelector("#game-screen");
-    this.gameOverScreen = document.querySelector("#game-end");
+    this.gameOverScreen = document.querySelector("#game-over");
+    this.gameYourScoreScreen = document.querySelector("#game-newRecord");
     this.width = 800;
     this.height = 800;
 
@@ -31,6 +32,7 @@ class Game {
   start() {
     this.startScreen.style.display = "none";
     this.gameOverScreen.style.display = "none";
+    this.gameYourScoreScreen.style.display = "none";
 
     this.gameContainer.style.display = "flex";
 
@@ -67,8 +69,6 @@ class Game {
           bullet.render();
           //
           if (bullet.didCollide(enemy)) {
-            console.log(wasEnemyHit);
-            console.log("Hit");
             this.score += 100;
             wasEnemyHit = true;
             enemy.element.remove();
@@ -78,7 +78,6 @@ class Game {
           } else {
             nextBullets.push(bullet);
           }
-          console.log(wasEnemyHit);
           ///
         });
         // this.bullets = nextBullets; // fix it
@@ -86,7 +85,6 @@ class Game {
           (!wasEnemyHit && this.player.didCollide(enemy)) ||
           enemy.left < -25
         ) {
-          console.log("Crash");
           this.lives -= 1;
           if (this.lives < 0) {
             this.isGameOver = true;
@@ -103,13 +101,15 @@ class Game {
 
       document.querySelector("#lives").innerText = this.lives;
       document.querySelector("#score").innerText = this.score;
+      document.querySelector(".old-record").innerHTML = `Current record: ${localStorage.getItem('score')}`;
 
       if (this.isGameOver) {
         clearInterval(gameId);
         this.gameContainer.style.display = "none";
         if (localStorage.getItem("score") < this.score) {
-          console.log("lose");
-          console.log(localStorage.getItem("score"));
+          document.querySelector(".new-record-descr").innerHTML = `Congratulations, you have broken your own record !`
+          document.querySelector(".new-record-score").innerHTML = `Your new record is: <span>${this.score}</span> points!!!`
+          this.gameYourScoreScreen.style.display = "flex";
         } else {
           this.gameOverScreen.style.display = "flex";
         }
