@@ -1,14 +1,21 @@
-const enemies = ['sprite-egg-monster', 'sprite-ghost-monster', 'sprite-zombi', 'sprite-ghost-two', 'sprite-walking-skeleton', 'sprite-angry-ball',  ]
+const enemies = [
+  "sprite-egg-monster",
+  "sprite-ghost-monster",
+  "sprite-zombi",
+  "sprite-ghost-two",
+  "sprite-walking-skeleton",
+  "sprite-angry-ball",
+];
 
 class Enemy {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
     this.left = gameScreen.clientWidth;
     this.bottom = Math.round(Math.random() * 230) + 230;
-    this.randomEnemy = Math.floor(Math.random() * enemies.length)
+    this.randomEnemy = Math.floor(Math.random() * enemies.length);
 
     this.element = document.createElement("div");
-    this.element.classList.add(enemies[this.randomEnemy])
+    this.element.classList.add(enemies[this.randomEnemy]);
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.width}px`;
     this.element.style.position = `absolute`;
