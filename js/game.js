@@ -29,7 +29,7 @@ class Game {
 
     this.gameContainer.style.display = "flex";
 
-    this.gameScreen.style.background = `center / contain no-repeat url('/img/${GAME_BACKGROUNDS[this.randomBackground]}.png')`
+    this.gameScreen.style.background = `center / contain no-repeat url('../../img/${GAME_BACKGROUNDS[this.randomBackground]}.png')`
     this.gameScreen.style.width = `${this.width}px`;
     this.gameScreen.style.height = `${this.height}px`;
 
